@@ -499,3 +499,5 @@ crashlytics-build.properties
 
 # webgl artifact
 build
+
+.vsconfig
