@@ -7,7 +7,7 @@ public class Scarlet : MonoBehaviour
     [SerializeField] ScarletBullet sb;
 
     void Start()
-    {
-        Instantiate(sb, transform.position, transform.rotation);
+    {  
+        Instantiate(sb, transform.position, Quaternion.Euler(0,0,90));
     }
 }
