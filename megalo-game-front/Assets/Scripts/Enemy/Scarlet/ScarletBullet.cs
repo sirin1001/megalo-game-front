@@ -46,7 +46,7 @@ public class ScarletBullet : MonoBehaviour
         
         Acceleration += Acceleration * Acceleration * Time.deltaTime;
 
-        if(!sr.isVisible){
+        if(!sr.isVisible && Speed == MaxSpeed){
             Destroy(gameObject);
         }
         yield return null; // 1フレーム待つ
