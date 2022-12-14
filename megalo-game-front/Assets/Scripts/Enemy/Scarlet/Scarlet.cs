@@ -26,7 +26,7 @@ public class Scarlet : MonoBehaviour
             case 1:
                 StartCoroutine( Move( new Vector3(7f,0f,0f)));
                 break;
-             case 2:
+            case 2:
                 StartCoroutine( Move( new Vector3(7f,0f,0f)));
                 break;
         }
@@ -34,10 +34,10 @@ public class Scarlet : MonoBehaviour
  
     IEnumerator Move(Vector3 targetPos){
         while(transform.position != targetPos){
-            Debug.Log(transform.position != targetPos);
             transform.position = Vector3.MoveTowards(transform.position,targetPos,5f*Time.deltaTime);
             yield return null;
         }
+
         yield return new WaitForSeconds(1f);
         ShotPtn();
         
@@ -62,21 +62,26 @@ public class Scarlet : MonoBehaviour
 
             case 2:
                 pos = transform.position;
-                for(int i=0;i<=180; i+=15){
-                    pos.x -= Mathf.Cos(i * Mathf.Deg2Rad);
-                    pos.y -= Mathf.Sin(i * Mathf.Deg2Rad);
-                    pos.z += 0f;
+                for(int i=90;i<=270; i+=15){
+                    pos.x = transform.position.x + Mathf.Cos(i * Mathf.Deg2Rad);
+                    pos.x += (pos.x - transform.position.x) * 0.5f;
+                    pos.y = transform.position.y + Mathf.Sin(i * Mathf.Deg2Rad);
+                    pos.y += (pos.y - transform.position.y) * 0.5f;
+                    pos.z = 0f;
+
                     rot.x = 0f;
                     rot.y = 0f;
-                    rot.z = i;
+                    rot.z = i-90;
+
                     Shot(pos,rot);
                 }
                 break;
                 
         }
 
-        ActionPtn = 2;
-        //ActionPtn = UnityEngine.Random.Range(1, MaxPtn);
+        UnityEngine.Random.InitState((int)Time.time);
+        ActionPtn = UnityEngine.Random.Range(1, 3);
+        Debug.Log("[Debug] ActionPtn " + ActionPtn);
         Action();
     }
 
