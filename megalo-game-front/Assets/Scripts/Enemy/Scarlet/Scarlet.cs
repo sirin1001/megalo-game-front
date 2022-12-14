@@ -6,12 +6,15 @@ using UnityEngine;
 public class Scarlet : MonoBehaviour
 {
     [SerializeField] ScarletBullet sb;
+    [SerializeField] ScarletBulletSmall sbs;
     float speed;
     int ActionPtn=0;
     int MaxPtn=2;
     void Start(){
+        ShotSbs();
         transform.position = new Vector3(11f,0f,0f);
         Action();
+        
     }
     void Action(){
         MovePtn();
@@ -27,6 +30,9 @@ public class Scarlet : MonoBehaviour
                 StartCoroutine( Move( new Vector3(7f,0f,0f)));
                 break;
             case 2:
+                StartCoroutine( Move( new Vector3(7f,0f,0f)));
+                break;
+            case 3:
                 StartCoroutine( Move( new Vector3(7f,0f,0f)));
                 break;
         }
@@ -54,7 +60,7 @@ public class Scarlet : MonoBehaviour
                 pos = transform.position;
                 rot = new Vector3(0f,0f,90f);
                 pos.x = transform.position.x - 2;
-                for(int i=-4; i<=4; i++){
+                for(int i=-5; i<=5; i++){
                     pos.y = i;
                     Shot(pos,rot);
                 }
@@ -76,11 +82,25 @@ public class Scarlet : MonoBehaviour
                     Shot(pos,rot);
                 }
                 break;
+            case 3:
+                pos = transform.position;
+                rot = transform.rotation.eulerAngles;
+                for(int i=0; i<=5; i++)
+                {
+                    pos.y = i;
+                    rot.z =112f;
+                    Shot(pos,rot);
+                    pos.y = -i;
+                    rot.z = 68f;
+                    Shot(pos,rot);
+                }
+                break;
                 
         }
 
         UnityEngine.Random.InitState((int)Time.time);
-        ActionPtn = UnityEngine.Random.Range(1, 3);
+        // ActionPtn = 3;
+        ActionPtn = UnityEngine.Random.Range(1, 4);
         Debug.Log("[Debug] ActionPtn " + ActionPtn);
         Action();
     }
@@ -94,5 +114,17 @@ public class Scarlet : MonoBehaviour
         // Array.Fill(Pos,transform.position);
         // Vector3[] Rot = new Vector3[5];
         // Array.Fill(Rot,transform.rotation.eulerAngles);
+    }
+    void ShotSbs(){
+        Debug.Log("[Debug] ShotSbs");
+        Vector3 rot = transform.rotation.eulerAngles;
+        UnityEngine.Random.InitState(DateTime.Now.Millisecond);
+        rot.z = UnityEngine.Random.Range(0f,361f);
+        StartCoroutine( SbsMove(rot));
+    }
+    IEnumerator SbsMove(Vector3 rot){
+        Instantiate(sbs,transform.position,Quaternion.Euler(rot));
+        yield return new WaitForSeconds(0.01f);
+        ShotSbs();
     }
 }
