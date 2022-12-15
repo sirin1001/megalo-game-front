@@ -57,5 +57,13 @@ public class Player : MonoBehaviour
         Instantiate(bullet, transform.position, transform.rotation);
     }
 
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit");
+        }
+    }
 }
 
