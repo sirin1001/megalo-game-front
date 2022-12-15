@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Bullet bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +15,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-    
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shot();
+        }
     }
 
     void Move()
@@ -49,9 +53,8 @@ public class Player : MonoBehaviour
 
     void Shot()
     {
-        
-        
 
+        Instantiate(bullet, transform.position, transform.rotation);
     }
 
 }
