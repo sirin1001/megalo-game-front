@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
         {
             Shot();
         }
+
+
     }
 
     void Move()
@@ -46,16 +48,21 @@ public class Player : MonoBehaviour
         {
             this.transform.Translate(0, -speed, 0);
         }
-        
+    
         
     }
 
 
     void Shot()
     {
-
-        Instantiate(bullet, transform.position, transform.rotation);
+        for (int k=-40; k <=40; k+=20)
+        {
+  
+            Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, k)));
+        }
     }
 
+
+   
 }
 
