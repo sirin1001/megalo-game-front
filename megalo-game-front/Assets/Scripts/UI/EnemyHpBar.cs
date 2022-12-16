@@ -10,7 +10,8 @@ public class EnemyHpBar : MonoBehaviour
     int Hp;
     void Start()
     {
-        Hp = MaxHp;
+        Hp = GameObject.Find("Scarlet").GetComponent<Scarlet>().HP;
+        Hp = 100;
         slider.value = MaxHp;
     }
 

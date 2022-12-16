@@ -10,6 +10,7 @@ public class Scarlet : MonoBehaviour
     float speed;
     int ActionPtn=0;
     int MaxPtn=2;
+    public int HP = 100;
     void Start(){
         ShotSbs();
         transform.position = new Vector3(11f,0f,0f);
