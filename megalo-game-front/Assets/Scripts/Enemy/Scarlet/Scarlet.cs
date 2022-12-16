@@ -7,13 +7,16 @@ public class Scarlet : MonoBehaviour
 {
     [SerializeField] ScarletBullet sb;
     [SerializeField] ScarletBulletSmall sbs;
+    [SerializeField] EnemyHpBar ehb;
     float speed;
     int ActionPtn=0;
-    int MaxPtn=2;
+    int MaxPtn=4; // ÉpÉ^Å[Éìêî+1
+    public int HP = 100;
     void Start(){
-        ShotSbs();
+        
         transform.position = new Vector3(11f,0f,0f);
         Action();
+        Invoke("ShotSbs", 2f);
         
     }
     void Action(){
@@ -100,8 +103,7 @@ public class Scarlet : MonoBehaviour
 
         UnityEngine.Random.InitState((int)Time.time);
         // ActionPtn = 3;
-        ActionPtn = UnityEngine.Random.Range(1, 4);
-        Debug.Log("[Debug] ActionPtn " + ActionPtn);
+        ActionPtn = UnityEngine.Random.Range(1, MaxPtn);
         Action();
     }
 
@@ -116,7 +118,6 @@ public class Scarlet : MonoBehaviour
         // Array.Fill(Rot,transform.rotation.eulerAngles);
     }
     void ShotSbs(){
-        Debug.Log("[Debug] ShotSbs");
         Vector3 rot = transform.rotation.eulerAngles;
         UnityEngine.Random.InitState(DateTime.Now.Millisecond);
         rot.z = UnityEngine.Random.Range(0f,361f);
@@ -124,7 +125,18 @@ public class Scarlet : MonoBehaviour
     }
     IEnumerator SbsMove(Vector3 rot){
         Instantiate(sbs,transform.position,Quaternion.Euler(rot));
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.3f);
         ShotSbs();
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        ehb.GetComponent<EnemyHpBar>().Damage();
+    }
+
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 }
