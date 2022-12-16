@@ -28,22 +28,22 @@ public class Player : MonoBehaviour
     {
         float speed = 1*Time.deltaTime;
 
-        //‰E
+        //ï¿½E
         if(Input.GetKey(KeyCode.D))
         {
             this.transform.Translate(speed, 0, 0);
         }
-        //¶
+        //ï¿½ï¿½
         if (Input.GetKey(KeyCode.A))
         {
             this.transform.Translate(-speed, 0, 0);
         }
-        //ã
+        //ï¿½ï¿½
         if (Input.GetKey(KeyCode.W))
         {
             this.transform.Translate(0,speed, 0);
         }
-        //‰º
+        //ï¿½ï¿½
         if (Input.GetKey(KeyCode.S))
         {
             this.transform.Translate(0, -speed, 0);
@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
     }
 
 
-<<<<<<< HEAD
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
@@ -71,8 +70,5 @@ public class Player : MonoBehaviour
             Debug.Log("Hit");
         }
     }
-=======
-   
->>>>>>> feature/player
 }
 
