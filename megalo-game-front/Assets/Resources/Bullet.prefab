@@ -8,6 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e146bcf53b3ce24e964e3496f6287c2fdc1ffc3
   - component: {fileID: 1817006476569524266}
   - component: {fileID: 1817006476569524267}
   - component: {fileID: 7455801265023811828}
@@ -15,6 +19,10 @@ GameObject:
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e146bcf53b3ce24e964e3496f6287c2fdc1ffc3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,15 +103,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817006476569524437}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e146bcf53b3ce24e964e3496f6287c2fdc1ffc3
   m_Script: {fileID: 11500000, guid: c0605ac5eedb9f74cb4a4c3e5d15fbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &-3838000241701644404
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e146bcf53b3ce24e964e3496f6287c2fdc1ffc3
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e146bcf53b3ce24e964e3496f6287c2fdc1ffc3
   m_GameObject: {fileID: 1817006476569524437}
   m_Enabled: 1
   m_Density: 1
