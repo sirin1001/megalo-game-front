@@ -4,7 +4,7 @@ using UnityEngine;
 public class AvatarFireBullet : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    private Bullet bulletPrefab = default;
+    private PlayerBullet bulletPrefab = default;
 
     private void Update() {
         if (photonView.IsMine) {

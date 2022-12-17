@@ -9,7 +9,6 @@ public class Scarlet : MonoBehaviourPunCallbacks
     [SerializeField] ScarletBullet sb;
     [SerializeField] ScarletBulletSmall sbs;
     [SerializeField] EnemyHpBar ehb;
-    [SerializeField] private Bullet bulletPrefab = default;
     float speed;
     int ActionPtn=0;
     int MaxPtn=4; // �p�^�[����+1
