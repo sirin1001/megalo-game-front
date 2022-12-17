@@ -275,8 +275,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1489720397
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +415,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
->>>>>>> feature/PlayerUI
 --- !u!1 &1780124254
 GameObject:
   m_ObjectHideFlags: 0
