@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4317193289769848517}
   - component: {fileID: 7782168751012003849}
   - component: {fileID: 983571269622196741}
-  - component: {fileID: 4317193289769848516}
   m_Layer: 0
   m_Name: ScarletBullet
   m_TagString: Enemy
@@ -55,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e8ab34a67bd7e74a81356c91be5e837, type: 2}
+  - {fileID: 2100000, guid: cfc6a17cb35abc14b92deedba7df998d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,18 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4317193289769848523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1657da744b0ef4587de9a1d8d00484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4317193289769848516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317193289769848523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1657da744b0ef4587de9a1d8d00484, type: 3}
+  m_Script: {fileID: 11500000, guid: ef042c33177892c4c8b1e47ca2c4758d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
