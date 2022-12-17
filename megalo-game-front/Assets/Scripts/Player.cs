@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Player : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Shot();
+            photonView.RPC("Shot", RpcTarget.All);
         }
 
 
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
     }
 
 
-    void Shot()
+    [PunRPC]void Shot()
     {
         for (int k=-40; k <=40; k+=20)
         {
