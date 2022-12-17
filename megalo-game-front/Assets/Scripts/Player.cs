@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] Bullet bullet;
+    [SerializeField] PlayerBullet bullet;
     [SerializeField] GameObject targetObj;
     // Start is called before the first frame update
     void Start()
     {
-        // g
+      
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         {
   
             Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, k)));
-        }
+        }         
     }
 
 
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Hit");
+            Debug.Log("damage");
             targetObj.GetComponent<PlayerHpBar>().RecvDamege();
         }
     }

@@ -1,24 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
+    Score score;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        score = GameObject.Find("Score").GetComponent<Score>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         bullet();
-
-
-       
     }
 
     void bullet()
@@ -37,18 +34,12 @@ public class Bullet : MonoBehaviour
     }
 
 
-
-
-
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit");
+            score.Hit();
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
