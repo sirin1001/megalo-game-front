@@ -1,24 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Photon.Pun;
 using UnityEngine;
 
-public class Scarlet : MonoBehaviour
+public class Scarlet : MonoBehaviourPunCallbacks
 {
     [SerializeField] ScarletBullet sb;
     [SerializeField] ScarletBulletSmall sbs;
     [SerializeField] EnemyHpBar ehb;
+    [SerializeField] private Bullet bulletPrefab = default;
     float speed;
     int ActionPtn=0;
-    int MaxPtn=4; // ÉpÉ^Å[Éìêî+1
+    int MaxPtn=4; // ÔøΩpÔøΩ^ÔøΩ[ÔøΩÔøΩÔøΩÔøΩ+1
     public int HP = 100;
     void Start(){
-        
         transform.position = new Vector3(11f,0f,0f);
         Action();
         Invoke("ShotSbs", 2f);
         
     }
+
+    public void ShotPtnTest(){
+        /* ------------------------------------------------ */
+        /* Debug.Log($"ShotPtnTest: {photonView is null}"); */
+        /* ------------------------------------------------ */
+
+        ShotTest();
+        photonView.RPC(nameof(ShotTest),RpcTarget.All);
+        
+        Invoke("ShotPtnTest",1f);
+    }
+    [PunRPC] private void ShotTest(){
+        Instantiate(sb,new Vector3(0,0,0),Quaternion.Euler(new Vector3(0,0,0)));
+    }
+
     void Action(){
         MovePtn();
     }
@@ -65,7 +81,7 @@ public class Scarlet : MonoBehaviour
                 pos.x = transform.position.x - 2;
                 for(int i=-5; i<=5; i++){
                     pos.y = i;
-                    Shot(pos,rot);
+                    photonView.RPC("Shot",RpcTarget.All,pos,rot);
                 }
                 break;
 
@@ -82,7 +98,7 @@ public class Scarlet : MonoBehaviour
                     rot.y = 0f;
                     rot.z = i-90;
 
-                    Shot(pos,rot);
+                    photonView.RPC(nameof(Shot),RpcTarget.All,pos,rot);
                 }
                 break;
             case 3:
@@ -92,25 +108,23 @@ public class Scarlet : MonoBehaviour
                 {
                     pos.y = i;
                     rot.z =112f;
-                    Shot(pos,rot);
+                    photonView.RPC("Shot",RpcTarget.All,pos,rot);
                     pos.y = -i;
                     rot.z = 68f;
-                    Shot(pos,rot);
+                    photonView.RPC("Shot",RpcTarget.All,pos,rot);
                 }
                 break;
                 
         }
 
         UnityEngine.Random.InitState((int)Time.time);
-        // ActionPtn = 3;
         ActionPtn = UnityEngine.Random.Range(1, MaxPtn);
+        // ActionPtn = 3;
         Action();
     }
 
-    void Shot(Vector3 Pos,Vector3 Rot){
+    [PunRPC] void Shot(Vector3 Pos,Vector3 Rot){
         Instantiate(sb,Pos,Quaternion.Euler(Rot));
-
-        
 
         // Vector3[] Pos = new Vector3[5];
         // Array.Fill(Pos,transform.position);
@@ -124,15 +138,17 @@ public class Scarlet : MonoBehaviour
         StartCoroutine( SbsMove(rot));
     }
     IEnumerator SbsMove(Vector3 rot){
-        Instantiate(sbs,transform.position,Quaternion.Euler(rot));
-        yield return new WaitForSeconds(0.3f);
+        // Instantiate(sbs,transform.position,Quaternion.Euler(rot));
+        yield return new WaitForSeconds(0.5f);
         ShotSbs();
     }
 
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        ehb.GetComponent<EnemyHpBar>().Damage();
+        if(collider.tag == "Player"){
+            ehb.GetComponent<EnemyHpBar>().Damage();
+        }
     }
 
     public void Dead()
