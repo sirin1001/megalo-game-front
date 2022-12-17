@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Bullet bullet;
+    [SerializeField] Bullet bullet;
+    [SerializeField] GameObject targetObj;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // g
     }
 
     // Update is called once per frame
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Hit");
+            targetObj.GetComponent<PlayerHpBar>().RecvDamege();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -26,13 +27,13 @@ public class Bullet : MonoBehaviour
         Vector3 velocity = gameObject.transform.rotation * new Vector3(speed, 0, 0);
         gameObject.transform.position += velocity * Time.deltaTime;
 
-        
 
     }
 
     void OnBecameInvisible()
     {
-            Destroy(gameObject);
+
+        Destroy(gameObject);
     }
 
 
