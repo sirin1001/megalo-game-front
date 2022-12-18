@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Scarlet : MonoBehaviourPunCallbacks
 {
@@ -14,9 +15,10 @@ public class Scarlet : MonoBehaviourPunCallbacks
     int MaxPtn=4; // �p�^�[����+1
     public int HP = 100;
     void Start(){
+        GameObject.Find("HPbar").GetComponent<EnemyHpBar>().GetObject();
         transform.position = new Vector3(11f,0f,0f);
         Action();
-        Invoke("ShotSbs", 2f);
+        //Invoke("ShotSbs", 2f);
         
     }
 
@@ -35,6 +37,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
     }
 
     void Action(){
+
         MovePtn();
     }
 
@@ -137,7 +140,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
         StartCoroutine( SbsMove(rot));
     }
     IEnumerator SbsMove(Vector3 rot){
-        // Instantiate(sbs,transform.position,Quaternion.Euler(rot));
+        Instantiate(sbs,transform.position,Quaternion.Euler(rot));
         yield return new WaitForSeconds(0.5f);
         ShotSbs();
     }
@@ -152,6 +155,12 @@ public class Scarlet : MonoBehaviourPunCallbacks
 
     public void Dead()
     {
+        BattleManager.isWin = true;
         Destroy(gameObject);
+        Invoke("ChangeResultScene",2f);
+    }
+    void ChangeResultScene()
+    {
+        SceneManager.LoadScene("ResultScene");
     }
 }

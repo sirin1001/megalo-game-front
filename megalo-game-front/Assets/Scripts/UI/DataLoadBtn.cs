@@ -7,5 +7,6 @@ public class DataLoadBtn : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("DataLoad");
+        //Azure‚©‚çƒf[ƒ^“Ç‚İ‚İ
     }
 }
