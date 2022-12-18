@@ -44,6 +44,8 @@ MonoBehaviour:
   - ShotTest
   - ShotPtn
   - Shot
+  - StartBattle
+  - CloneBattleManager
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

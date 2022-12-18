@@ -40,6 +40,7 @@ public class PlayerBullet : MonoBehaviour
         {
             Debug.Log("Hit");
             score.Hit();
+
         }
     }
 }

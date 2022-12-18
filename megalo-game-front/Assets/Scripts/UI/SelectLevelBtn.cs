@@ -8,6 +8,6 @@ public class SelectLevelBtn : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("SelectLevelBtn");
-        //SceneManager.LoadScene("SelectLevelScene");
+        SceneManager.LoadScene("SelectLevelScene");
     }
 }

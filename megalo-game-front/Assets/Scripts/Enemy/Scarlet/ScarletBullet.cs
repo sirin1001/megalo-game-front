@@ -52,4 +52,9 @@ public class ScarletBullet : MonoBehaviour
         yield return null; // 1フレーム待つ
         StartCoroutine("Move");
     }
+    void OnBecameInvisible()
+    {
+
+        Destroy(gameObject);
+    }
 }

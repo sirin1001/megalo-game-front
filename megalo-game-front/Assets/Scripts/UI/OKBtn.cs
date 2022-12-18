@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class OKBtn : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class OKBtn : MonoBehaviour
     {
         Level = dropdown.value;
         Debug.Log("OKBtn :" + dropdown.value);
+        SceneManager.LoadScene("MainScene");
+
     }
     public int GetLevel()
     {

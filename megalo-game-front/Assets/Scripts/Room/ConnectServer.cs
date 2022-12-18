@@ -20,24 +20,41 @@ public class ConnectServer : MonoBehaviourPunCallbacks
         Debug.Log("OnConnectedToMaster");
         ConnectLog.text = "OnConnectedToMaster";
         var roomOpt = new RoomOptions();
-        roomOpt.MaxPlayers = 2;
-        PhotonNetwork.JoinOrCreateRoom("Room",new RoomOptions(), TypedLobby.Default);
+        roomOpt.MaxPlayers = 2; // あとで２にして！！！！！！！！！！！！！
+        PhotonNetwork.JoinOrCreateRoom("Room",roomOpt, TypedLobby.Default);
     }
     
     public override void OnJoinedRoom()
     {
         Debug.Log("OnJoinedRoom");
         ConnectLog.text = "OnJoinedRoom";
+        
         if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
+            photonView.RPC(nameof(CloneBattleManager), RpcTarget.All);
         }
+
         Vector3 pos, rot;
         pos = new Vector3(-8f, UnityEngine.Random.Range(-4.0f, 4.1f),0f);
         rot = new Vector3(0f, 0f, 0f);
+
         PhotonNetwork.Instantiate("Player", pos, Quaternion.Euler(rot));
+
         Invoke("LastMsg", 2f);
     }
+
+    [PunRPC]
+    void CloneBattleManager()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.InstantiateRoomObject("BattleManager", Vector3.zero, Quaternion.Euler(Vector3.zero));
+        }
+    }
+
+
+
     public override void OnCreatedRoom()
     {
         Debug.Log("OnCreatedRoom");

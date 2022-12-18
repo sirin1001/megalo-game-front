@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPunCallbacks
 {
     [SerializeField] PlayerBullet bullet;
     [SerializeField] GameObject targetObj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
     {
         Move();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && photonView.IsMine)
         {
             photonView.RPC("Shot", RpcTarget.All);
         }
@@ -28,30 +29,31 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        float speed = 1*Time.deltaTime;
+        float speed = 6f*Time.deltaTime;
+        if (photonView.IsMine) { 
+            //�E
+            if(Input.GetKey(KeyCode.D))
+            {
+                this.transform.Translate(speed, 0, 0);
+            }
+            //��
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.transform.Translate(-speed, 0, 0);
+            }
+            //��
+            if (Input.GetKey(KeyCode.W))
+            {
+                this.transform.Translate(0,speed, 0);
+            }
+            //��
+            if (Input.GetKey(KeyCode.S))
+            {
+                this.transform.Translate(0, -speed, 0);
+            }
+        }
 
-        //�E
-        if(Input.GetKey(KeyCode.D))
-        {
-            this.transform.Translate(speed, 0, 0);
-        }
-        //��
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.Translate(-speed, 0, 0);
-        }
-        //��
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.transform.Translate(0,speed, 0);
-        }
-        //��
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.Translate(0, -speed, 0);
-        }
-    
-        
+
     }
 
 
