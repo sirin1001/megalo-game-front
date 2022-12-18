@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,12 @@ public class EnemyHpBar : MonoBehaviour
     int Hp;
     void Start()
     {
-        Hp = GameObject.Find("Scarlet").GetComponent<Scarlet>().HP;
+        
+    }
+
+    public void GetObject()
+    {
+        Hp = GameObject.Find("Canvas").transform.Find("Hpbar").GetComponent<EnemyHpBar>().Hp;
         Hp = MaxHp;
         slider.value = MaxHp;
     }
