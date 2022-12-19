@@ -17,7 +17,7 @@ public class ScarletBulletSmall : MonoBehaviour
 
         float x = transform.position.x;
         float y = transform.position.y;
-        if(!(-10<x || x<10 || -10<y || y<10)){
+        if(!(-10<x && x<10 && -6<y && y<6)){
             Destroy(gameObject);
         }
         

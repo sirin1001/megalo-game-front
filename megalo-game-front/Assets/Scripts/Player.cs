@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPunCallbacks
 {
-    public Bullet bullet;
+    [SerializeField] PlayerBullet bullet;
+    [SerializeField] GameObject targetObj;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -16,46 +19,61 @@ public class Player : MonoBehaviour
     {
         Move();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && photonView.IsMine)
         {
-            Shot();
+            photonView.RPC("Shot", RpcTarget.All);
         }
+
+
     }
 
     void Move()
     {
-        float speed = 1*Time.deltaTime;
+        float speed = 6f*Time.deltaTime;
+        if (photonView.IsMine) { 
+            //ÔøΩE
+            if(Input.GetKey(KeyCode.D))
+            {
+                this.transform.Translate(speed, 0, 0);
+            }
+            //ÔøΩÔøΩ
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.transform.Translate(-speed, 0, 0);
+            }
+            //ÔøΩÔøΩ
+            if (Input.GetKey(KeyCode.W))
+            {
+                this.transform.Translate(0,speed, 0);
+            }
+            //ÔøΩÔøΩ
+            if (Input.GetKey(KeyCode.S))
+            {
+                this.transform.Translate(0, -speed, 0);
+            }
+        }
 
-        //âE
-        if(Input.GetKey(KeyCode.D))
-        {
-            this.transform.Translate(speed, 0, 0);
-        }
-        //ç∂
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.Translate(-speed, 0, 0);
-        }
-        //è„
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.transform.Translate(0,speed, 0);
-        }
-        //â∫
-        if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.Translate(0, -speed, 0);
-        }
-        
-        
+
     }
 
 
-    void Shot()
+    [PunRPC]void Shot()
     {
-
-        Instantiate(bullet, transform.position, transform.rotation);
+        for (int k=-40; k <=40; k+=20)
+        {
+  
+            Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, k)));
+        }         
     }
 
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("damage");
+            targetObj.GetComponent<PlayerHpBar>().RecvDamege();
+        }
+    }
 }
 

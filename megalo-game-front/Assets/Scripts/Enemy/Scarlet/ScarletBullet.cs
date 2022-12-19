@@ -6,7 +6,7 @@ public class ScarletBullet : MonoBehaviour
 {
     float Speed = 0f;
     float Acceleration = 1.01f; // 加速度
-    float MaxSpeed = 40f; // 最高速度
+    float MaxSpeed = 20f; // 最高速度
     SpriteRenderer sr;
     void Start()
     {
@@ -51,5 +51,10 @@ public class ScarletBullet : MonoBehaviour
         }
         yield return null; // 1フレーム待つ
         StartCoroutine("Move");
+    }
+    void OnBecameInvisible()
+    {
+
+        Destroy(gameObject);
     }
 }
