@@ -17,17 +17,17 @@ public class ConnectServer : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("OnConnectedToMaster");
-        ConnectLog.text = "OnConnectedToMaster";
+        Debug.Log("ConnectedToMaster");
+        ConnectLog.text = "ConnectedToMaster";
         var roomOpt = new RoomOptions();
-        roomOpt.MaxPlayers = 2; // あとで２にして！！！！！！！！！！！！！
+        roomOpt.MaxPlayers = 1; // ?????Q?????I?I?I?I?I?I?I?I?I?I?I?I?I
         PhotonNetwork.JoinOrCreateRoom("Room",roomOpt, TypedLobby.Default);
     }
     
     public override void OnJoinedRoom()
     {
-        Debug.Log("OnJoinedRoom");
-        ConnectLog.text = "OnJoinedRoom";
+        Debug.Log("JoinedRoom");
+        ConnectLog.text = "JoinedRoom";
         
         if (PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
@@ -57,10 +57,10 @@ public class ConnectServer : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()
     {
-        Debug.Log("OnCreatedRoom");
+        Debug.Log("CreatedRoom");
         
         
-        ConnectLog.text = "OnCreatedRoom";
+        ConnectLog.text = "CreatedRoom";
     }
 
     void LastMsg()

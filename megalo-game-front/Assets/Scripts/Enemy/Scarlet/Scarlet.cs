@@ -13,9 +13,10 @@ public class Scarlet : MonoBehaviourPunCallbacks
     float speed;
     int ActionPtn=0;
     int MaxPtn=4; // �p�^�[����+1
-    public int HP = 100;
+    public int Hp = 100;
     void Start(){
-        GameObject.Find("HPbar").GetComponent<EnemyHpBar>().GetObject();
+        transform.name = "Scarlet";
+        GameObject.Find("EnemyHpBar").GetComponent<EnemyHpBar>().GetObject();
         transform.position = new Vector3(11f,0f,0f);
         Action();
         //Invoke("ShotSbs", 2f);
@@ -36,8 +37,8 @@ public class Scarlet : MonoBehaviourPunCallbacks
         Instantiate(sb,new Vector3(0,0,0),Quaternion.Euler(new Vector3(0,0,0)));
     }
 
-    void Action(){
-
+    void Action()
+    {
         MovePtn();
     }
 
@@ -64,10 +65,8 @@ public class Scarlet : MonoBehaviourPunCallbacks
             transform.position = Vector3.MoveTowards(transform.position,targetPos,5f*Time.deltaTime);
             yield return null;
         }
-
         yield return new WaitForSeconds(1f);
         ShotPtn();
-        
     }
     void ShotPtn(){
         Vector3 pos;
@@ -103,6 +102,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
                     photonView.RPC(nameof(Shot),RpcTarget.All,pos,rot);
                 }
                 break;
+
             case 3:
                 pos = transform.position;
                 rot = transform.rotation.eulerAngles;
@@ -120,7 +120,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
         }
 
         UnityEngine.Random.InitState((int)Time.time);
-        ActionPtn = UnityEngine.Random.Range(1, MaxPtn);
+        ActionPtn = UnityEngine.Random.Range(1, MaxPtn+1);
         // ActionPtn = 3;
         Action();
     }

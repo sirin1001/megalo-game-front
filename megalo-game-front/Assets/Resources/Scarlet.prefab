@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c013ec308a939504d9429d826ab701d1, type: 2}
+  - {fileID: 2100000, guid: 73862241d9fa0a74cb33e40e08d300de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,12 +98,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8512846980218499191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af9f7bc3d51b5b64fb6bbf6a7179ac05, type: 3}
+  m_Script: {fileID: 11500000, guid: f07d751381911cf4ba10c16a902b0a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sb: {fileID: 983571269622196741, guid: aee5483c184192e408c2ecf785909749, type: 3}
-  sbs: {fileID: 6829622096286434219, guid: 24a72c9596692ab46aa6a15829b3d8ed, type: 3}
-  ehb: {fileID: 2029580517925329040, guid: 455aa0467388b4346832c9b38cd6fb0a, type: 3}
+  sb: {fileID: 983571269622196741, guid: 92335b3dcf705f64e90bd4d147ffec08, type: 3}
+  sbs: {fileID: 6829622096286434219, guid: e59e9c8deebb5a245844a764e0e3ed65, type: 3}
+  ehb: {fileID: 0}
   HP: 100
 --- !u!58 &8512846980218499179
 CircleCollider2D:
@@ -160,7 +160,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 2332581739255924214}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

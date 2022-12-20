@@ -137,11 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3028397731303084322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f9d6ac24375684099e498d02c6d6bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 1951af0c56b3c9240945dbdb01ce46f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6803681951202149358, guid: 60c42cb7306e3854ba36572691bce4ed, type: 3}
-  targetObj: {fileID: 6631511753633105534, guid: 711a6c4942488224fa3e833858f43f61, type: 3}
+  bullet: {fileID: 6803681951202149358, guid: 7f0384bdd8f872f44a1ee83645b80d07, type: 3}
+  PlayerHpBar: {fileID: 0}
 --- !u!50 &5414820507871647360
 Rigidbody2D:
   serializedVersion: 4
