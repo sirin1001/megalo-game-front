@@ -103,8 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sb: {fileID: 983571269622196741, guid: 92335b3dcf705f64e90bd4d147ffec08, type: 3}
   sbs: {fileID: 6829622096286434219, guid: e59e9c8deebb5a245844a764e0e3ed65, type: 3}
-  ehb: {fileID: 0}
-  HP: 100
+  Hp: 100
 --- !u!58 &8512846980218499179
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,6 +161,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2332581739255924214}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

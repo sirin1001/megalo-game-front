@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2029580517925329039, guid: 6c6a7fb3526287b41b30c465cf6d7ddf, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2029580517925329041, guid: 6c6a7fb3526287b41b30c465cf6d7ddf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -312,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2029580517925329042, guid: 6c6a7fb3526287b41b30c465cf6d7ddf, type: 3}
       propertyPath: m_Name
-      value: EnemyHPbar
+      value: EnemyHpBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c6a7fb3526287b41b30c465cf6d7ddf, type: 3}
@@ -1138,9 +1142,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6631511753633105532, guid: f8dfeeeec69b6624898dae98630fddb6, type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631511753633105532, guid: f8dfeeeec69b6624898dae98630fddb6, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6631511753633105534, guid: f8dfeeeec69b6624898dae98630fddb6, type: 3}
       propertyPath: m_Name
-      value: PlayerHPbar
+      value: PlayerHpBar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8dfeeeec69b6624898dae98630fddb6, type: 3}

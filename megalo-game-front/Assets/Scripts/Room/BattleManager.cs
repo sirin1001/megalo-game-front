@@ -8,7 +8,7 @@ public class BattleManager : MonoBehaviour
     public static bool isWin = false;
     void Start()
     {
-        Debug.Log("BM");
+        transform.name = "BattleManager";
         SpawnEnemy();
     }
     public void SpawnEnemy()

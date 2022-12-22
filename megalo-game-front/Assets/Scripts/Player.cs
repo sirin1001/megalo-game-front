@@ -11,7 +11,7 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-      
+        PlayerHpBar = GameObject.Find("PlayerHpBar");
     }
 
     // Update is called once per frame
@@ -71,7 +71,6 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("damage");
             PlayerHpBar.GetComponent<PlayerHpBar>().RecvDamege();
         }
     }

@@ -9,14 +9,15 @@ public class Scarlet : MonoBehaviourPunCallbacks
 {
     [SerializeField] ScarletBullet sb;
     [SerializeField] ScarletBulletSmall sbs;
-    [SerializeField] EnemyHpBar ehb;
+    EnemyHpBar ehb;
     float speed;
     int ActionPtn=0;
-    int MaxPtn=4; // �p�^�[����+1
+    int MaxPtn=3; // �p�^�[����+1
     public int Hp = 100;
     void Start(){
         transform.name = "Scarlet";
-        GameObject.Find("EnemyHpBar").GetComponent<EnemyHpBar>().GetObject();
+        ehb = GameObject.Find("EnemyHpBar").GetComponent<EnemyHpBar>();
+        ehb.GetObject();
         transform.position = new Vector3(11f,0f,0f);
         Action();
         //Invoke("ShotSbs", 2f);
@@ -39,6 +40,8 @@ public class Scarlet : MonoBehaviourPunCallbacks
 
     void Action()
     {
+        Debug.Log("[Debug] ActionPtn = " + ActionPtn);
+        Debug.Log("[Debug] Action");
         MovePtn();
     }
 
@@ -80,7 +83,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
                 pos = transform.position;
                 rot = new Vector3(0f,0f,90f);
                 pos.x = transform.position.x - 2;
-                for(int i=-5; i<=5; i++){
+                for(int i=-3; i<=3; i+=2){
                     pos.y = i;
                     photonView.RPC("Shot",RpcTarget.All,pos,rot);
                 }
@@ -116,12 +119,16 @@ public class Scarlet : MonoBehaviourPunCallbacks
                     photonView.RPC("Shot",RpcTarget.All,pos,rot);
                 }
                 break;
+            default:
+                
+                break;
                 
         }
 
         UnityEngine.Random.InitState((int)Time.time);
         ActionPtn = UnityEngine.Random.Range(1, MaxPtn+1);
         // ActionPtn = 3;
+        
         Action();
     }
 
@@ -149,18 +156,18 @@ public class Scarlet : MonoBehaviourPunCallbacks
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.tag == "Player"){
-            ehb.GetComponent<EnemyHpBar>().Damage();
+            ehb.Damage();
         }
     }
-
     public void Dead()
     {
         BattleManager.isWin = true;
         Destroy(gameObject);
-        Invoke("ChangeResultScene",2f);
+        ChangeResultScene();
     }
     void ChangeResultScene()
     {
+        Debug.Log("ChangeScene");
         SceneManager.LoadScene("ResultScene");
     }
 }

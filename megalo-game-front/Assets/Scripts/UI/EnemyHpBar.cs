@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyHpBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    int MaxHp = 10;
+    int MaxHp = 100;
     int Hp;
     
     public void GetObject()
