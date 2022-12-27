@@ -5,21 +5,12 @@ using Photon.Pun;
 using UnityEngine.SceneManagement;
 
 public class Return : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+{   void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown("Space"))
+        if(Input.GetKeyDown(KeyCode.Return))
         {
-            PhotonNetwork.LeaveRoom();
             PhotonNetwork.Disconnect();
-            SceneManager.LoadScene("ResultScene");
+            SceneManager.LoadScene("TitleScene");
         }
     }
 }

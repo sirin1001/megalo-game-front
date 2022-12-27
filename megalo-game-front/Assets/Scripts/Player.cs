@@ -6,12 +6,12 @@ using Photon.Pun;
 public class Player : MonoBehaviourPunCallbacks
 {
     [SerializeField] PlayerBullet bullet;
-    [SerializeField] GameObject targetObj;
+    [SerializeField] GameObject PlayerHpBar;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        PlayerHpBar = GameObject.Find("PlayerHpBar");
     }
 
     // Update is called once per frame
@@ -71,8 +71,7 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("damage");
-            targetObj.GetComponent<PlayerHpBar>().RecvDamege();
+            PlayerHpBar.GetComponent<PlayerHpBar>().RecvDamege();
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 
 public class PlayerHpBar : MonoBehaviour
@@ -19,25 +19,16 @@ public class PlayerHpBar : MonoBehaviour
         HP = (int)MAXHP;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            RecvDamege();
-        }
-    }
-
     public void RecvDamege()
     {
-        Debug.Log("RecvDamege");
-        HP --;
+        HP--;
         slider.value = HP;
         if(HP <= 0)
         {
             Destroy(GameObject.Find("Player(Clone)"));
             Debug.Log("Lose");
-            GameObject.Find("BattleManager").GetComponent< BattleManager >().SetWin(false);
+            GameObject.Find("BattleManager").GetComponent<BattleManager>().SetWin(false);
+            SceneManager.LoadScene("ResultScene");
         }
     }
 

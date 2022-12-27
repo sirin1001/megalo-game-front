@@ -7,16 +7,13 @@ using UnityEngine.UI;
 public class EnemyHpBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
-    int MaxHp = 10;
+    int MaxHp = 100;
     int Hp;
-    void Start()
-    {
-        
-    }
-
+    
     public void GetObject()
     {
-        Hp = GameObject.Find("Canvas").transform.Find("Hpbar").GetComponent<EnemyHpBar>().Hp;
+        Debug.Log("[Debug] GetObject");
+        Hp = GameObject.Find("Scarlet").GetComponent<Scarlet>().Hp;
         Hp = MaxHp;
         slider.value = MaxHp;
     }
@@ -36,11 +33,9 @@ public class EnemyHpBar : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("space"))
-        {
-            Damage();
-
-            
-        }
+        // if(Input.GetKeyDown("space"))
+        // {
+        //     Damage();
+        // }
     }
 }
