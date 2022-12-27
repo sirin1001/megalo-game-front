@@ -20,7 +20,7 @@ public class ConnectServer : MonoBehaviourPunCallbacks
         Debug.Log("ConnectedToMaster");
         ConnectLog.text = "ConnectedToMaster";
         var roomOpt = new RoomOptions();
-        roomOpt.MaxPlayers = 1; // ?????Q?????I?I?I?I?I?I?I?I?I?I?I?I?I
+        roomOpt.MaxPlayers = 2;
         PhotonNetwork.JoinOrCreateRoom("Room",roomOpt, TypedLobby.Default);
     }
     

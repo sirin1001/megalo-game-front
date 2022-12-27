@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Return : MonoBehaviour
 {   void Update()
     {
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown(KeyCode.Return))
         {
             PhotonNetwork.Disconnect();
             SceneManager.LoadScene("TitleScene");

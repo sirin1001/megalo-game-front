@@ -13,7 +13,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
     float speed;
     int ActionPtn=0;
     int MaxPtn=3; // �p�^�[����+1
-    public int Hp = 100;
+    public int Hp;
     void Start(){
         transform.name = "Scarlet";
         ehb = GameObject.Find("EnemyHpBar").GetComponent<EnemyHpBar>();
@@ -149,7 +149,7 @@ public class Scarlet : MonoBehaviourPunCallbacks
     IEnumerator SbsMove(Vector3 rot){
         Instantiate(sbs,transform.position,Quaternion.Euler(rot));
         yield return new WaitForSeconds(0.5f);
-        ShotSbs();
+        ShotSbs(); 
     }
 
 
