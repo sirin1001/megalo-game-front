@@ -1166,6 +1166,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: 6631511753633105532, guid: 711a6c4942488224fa3e833858f43f61, type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631511753633105532, guid: 711a6c4942488224fa3e833858f43f61, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631511753633105533, guid: 711a6c4942488224fa3e833858f43f61, type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 2106291387}
+    - target: {fileID: 6631511753633105534, guid: 711a6c4942488224fa3e833858f43f61, type: 3}
+      propertyPath: m_Name
+      value: PlayerHpBar 1
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db6085685e88fb9479582d83c94d8a4a, type: 3}
 --- !u!224 &1390292477 stripped

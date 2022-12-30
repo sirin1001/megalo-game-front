@@ -20,7 +20,11 @@ public class ConnectServer : MonoBehaviourPunCallbacks
         Debug.Log("ConnectedToMaster");
         ConnectLog.text = "ConnectedToMaster";
         var roomOpt = new RoomOptions();
+<<<<<<< Updated upstream
         roomOpt.MaxPlayers = 2;
+=======
+        roomOpt.MaxPlayers = 1; // あとで２にして！！！！！！！！！！！！！
+>>>>>>> Stashed changes
         PhotonNetwork.JoinOrCreateRoom("Room",roomOpt, TypedLobby.Default);
     }
     
@@ -47,6 +51,7 @@ public class ConnectServer : MonoBehaviourPunCallbacks
     [PunRPC]
     void CloneBattleManager()
     {
+        Debug.Log("[Debug] CloneBAttleManager");
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.InstantiateRoomObject("BattleManager", Vector3.zero, Quaternion.Euler(Vector3.zero));

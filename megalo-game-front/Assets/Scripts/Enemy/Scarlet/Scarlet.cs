@@ -15,9 +15,12 @@ public class Scarlet : MonoBehaviourPunCallbacks
     int MaxPtn=3; // �p�^�[����+1
     public int Hp;
     void Start(){
+<<<<<<< Updated upstream
         transform.name = "Scarlet";
         ehb = GameObject.Find("EnemyHpBar").GetComponent<EnemyHpBar>();
         ehb.GetObject();
+=======
+>>>>>>> Stashed changes
         transform.position = new Vector3(11f,0f,0f);
         Action();
         //Invoke("ShotSbs", 2f);

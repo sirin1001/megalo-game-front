@@ -11,7 +11,11 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
         PlayerHpBar = GameObject.Find("PlayerHpBar");
+=======
+        targetObj = GameObject.Find("PlayerHpBar 1");
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame

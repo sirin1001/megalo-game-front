@@ -33,9 +33,18 @@ public class EnemyHpBar : MonoBehaviour
 
     void Update()
     {
+<<<<<<< Updated upstream
         // if(Input.GetKeyDown("space"))
         // {
         //     Damage();
         // }
+=======
+        if(Input.GetKeyDown("space"))
+        {
+            // Damage();
+
+            
+        }
+>>>>>>> Stashed changes
     }
 }
